@@ -109,6 +109,35 @@ int mul(int a,int b){
 return a*b;
 }
 ///////////////////////////////////////////////////////////////////////////////////
+same upper question now by using reference variable <br>
+##### int sum(int &a,int &b);
+for function syntax <br>
+for declaration on top === int sum(int &,int &);
+
+///
+#include<iostream>
+using namespace std;
+int sum(int &,int &);
+int sub(int &,int &);
+int mul(int &,int &);
+int main(){
+//using function pointer doing sum mul
+int a=40,b=30,x=0;
+cout<<"enter choice \n";
+cin>>x;
+switch(x){
+case 1:
+cout<<"\n sum :="<<sum(a,b);
+break;
+case 2:
+cout<<"\n sub :="<<sub(a,b);
+break;
+case 3:
+cout<<"\n mul :="<<mul(a,b);
+break;
+default: cout<<"enter right choice";
+}
+//////////////////////////////////////////////////////
 
 
 
