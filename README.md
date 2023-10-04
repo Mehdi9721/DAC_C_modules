@@ -33,6 +33,42 @@ return a+b;
 int sum(int a,int b,int c){
 return a+b+c;
 }
+<br>
+///////////////////////////////////////////////////////////////////////////
+### assignment 04-10-23
+find sum... using function pointer <br>
+int (*fun)(int,int); <br>
+#include<iostream>
+using namespace std;
+int (*fun)(int,int);
+int sum(int,int);
+int sub(int,int);
+int mul(int,int);
+int main(){
+//using function pointer doing sum mul
+int a=40,b=30;
+fun=sum;
+cout<<"\n sum :="<<fun(a,b);
+fun=sub;
+cout<<"\n sub :="<<fun(a,b);
+fun=mul;
+cout<<"\n mul :="<<fun(a,b);
+
+
+}
+int sum(int a,int b){
+return a+b;
+}
+int sub(int a,int b){
+return a-b;
+}
+int mul(int a,int b){
+return a*b;
+}
+
+/////////////////////////////////////////////
+
+
 
 
 
