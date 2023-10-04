@@ -67,6 +67,64 @@ return a*b;
 }
 
 /////////////////////////////////////////////
+using switch for choice on sum,sum <br>
+#include<iostream>
+using namespace std;
+int (*fun)(int,int);
+int sum(int,int);
+int sub(int,int);
+int mul(int,int);
+int main(){
+//using function pointer doing sum mul
+int a=40,b=30,x=0;
+cout<<"enter choice \n";
+cin>>x;
+switch(x){
+case 1:
+fun=sum;
+cout<<"\n sum :="<<fun(a,b);
+break;
+case 2:
+fun=sub;
+cout<<"\n sub :="<<fun(a,b);
+break;
+case 3:
+fun=mul;
+cout<<"\n mul :="<<fun(a,b);
+break;
+default: cout<<"enter right choice";
+}
+
+
+
+
+}
+int sum(int a,int b){
+return a+b;
+}
+int sub(int a,int b){
+return a-b;
+}
+int mul(int a,int b){
+return a*b;
+}
+///////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
