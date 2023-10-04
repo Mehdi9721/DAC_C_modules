@@ -10,6 +10,8 @@ for(;;); <br>
 ## D-147
 ## 4-10-23
 ### function pointer
+##### int (*fun)(int,int);
+
 #include <iostream>
 using namespace std;
 //function pointer
