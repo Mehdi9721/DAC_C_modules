@@ -169,16 +169,14 @@ int main()
   
     return 0; 
 }
-in above code we are addin
-//
-how to do this
+in above code we are addin <br>
+### operator overloading for adding two objects
 #include<iostream>
 using namespace std;
 class Date{
 int dd,mm,yy;
 public:
-Date(int d){
-dd=d;
+Date(){
 }
 Date(int dd,int mm,int yy){
 this->dd=dd;
@@ -190,8 +188,10 @@ cout<<dd<<"-"<<mm<<"-"<<yy<<"\n";
 }
 //operator overloading
 Date operator+(Date c){
-Date date
+Date date;
 date.dd=dd+c.dd;
+date.mm=mm+c.mm;
+date.yy=yy+c.yy;
 return date;
 }
 
@@ -200,12 +200,15 @@ return date;
 };
 int main(){
 //date before update
-Date d(05,10,2023),e(1),f;
+Date d(05,10,2023),e(1,1,1),f;
 d.display();
 //date after update
 f=d+e;
 f.display();
 }
+
+
+
 
 
 
