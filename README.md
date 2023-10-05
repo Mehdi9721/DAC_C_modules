@@ -139,6 +139,21 @@ default: cout<<"enter right choice";
 }
 //////////////////////////////////////////////////////
 
+### assigment on class
+
+1=> write a data class along with constructor <br>
+class std{
+int a;
+public:
+std(int a){
+this->a=a
+}
+};
+int main(){
+std a(10);
+}
+/////////////////////////////////////////////////////////
+
 
 
 
