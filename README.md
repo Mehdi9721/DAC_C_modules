@@ -206,6 +206,32 @@ d.display();
 f=d+e;
 f.display();
 }
+### using getter setter om date for updating class values (asss- on point)
+#include<iostream>
+using namespace std;
+class Point{
+int x,y;
+public:
+Point(){
+}
+Point(int x,int y){
+this->x=x;
+this->y=y;
+}
+void setx(int x){
+this->x=x;
+}
+void display(){
+cout<<"("<<x<<","<<y<<")"<<"\n";
+}
+~Point(){}
+};
+int main(){
+Point p(10,12);
+p.display();
+p.setx(99);
+p.display();
+}
 
 
 
