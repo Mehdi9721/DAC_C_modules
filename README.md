@@ -139,7 +139,7 @@ default: cout<<"enter right choice";
 }
 //////////////////////////////////////////////////////
 
-### assigment on class
+## assigment on class constructor
 
 1=> write a data class along with constructor <br>
 class std{
@@ -153,7 +153,9 @@ int main(){
 std a(10);
 }
 /////////////////////////////////////////////////////////
-
+## operator overloading
+operator overloading is a amazing functionality provided by the c++ which is not available in java,<br>
+By the help of operator overloading we can add two objects also by using + operator, + operator is limited for arethmetic operations but by using operator overloading we can maximise the power of any operator.
 
 
 
