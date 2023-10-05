@@ -156,6 +156,59 @@ std a(10);
 ## operator overloading
 operator overloading is a amazing functionality provided by the c++ which is not available in java,<br>
 By the help of operator overloading we can add two objects also by using + operator, + operator is limited for arethmetic operations but by using operator overloading we can maximise the power of any operator.
+////
+class A { 
+    statements; 
+}; 
+  
+int main() 
+{ 
+    A a1, a2, a3; 
+  
+    a3 = a1 + a2; 
+  
+    return 0; 
+}
+in above code we are addin
+//
+how to do this
+#include<iostream>
+using namespace std;
+class Date{
+int dd,mm,yy;
+public:
+Date(int d){
+dd=d;
+}
+Date(int dd,int mm,int yy){
+this->dd=dd;
+this->mm=mm;
+this->yy=yy;
+}
+void display(){
+cout<<dd<<"-"<<mm<<"-"<<yy<<"\n";
+}
+//operator overloading
+Date operator+(Date c){
+Date date
+date.dd=dd+c.dd;
+return date;
+}
+
+
+~Date(){}
+};
+int main(){
+//date before update
+Date d(05,10,2023),e(1),f;
+d.display();
+//date after update
+f=d+e;
+f.display();
+}
+
+
+
 
 
 
