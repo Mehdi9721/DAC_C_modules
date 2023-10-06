@@ -233,6 +233,63 @@ p.setx(99);
 p.display();
 }
 
+## day-144
+Integer class with copy constructor and operator overloading
+///
+#include<iostream>
+using namespace std;
+class Integer{
+int a,b;
+public:
+Integer (){a=2;b=2;}
+Integer (int aa,int bb){
+a=aa;
+b=bb;
+}
+// copy constructor
+Integer(Integer const &m){
+a=m.a;
+b=m.b;
+}
+// operator overloading
+Integer operator+(Integer const &ob){
+Integer res;
+res.a=a+ob.a;
+res.b=b+ob.b;
+return res;
+}
+//+= operator
+Integer operator+=(Integer const &ob){
+Integer res;
+res.a=a+ob.a;
+res.b=b+ob.b;
+return res;
+}
+// bool == operator
+bool operator==(Integer const &ob){
+if(a==ob.a && b==ob.b) return true;
+
+}
+void display(){
+cout<<a<<" " <<b<<"\n";
+}
+ 
+};
+int main(){
+Integer a,b(10,11),c(55,55),d(10,11);
+a.display();
+b.display();
+a=b;
+c=c+b;
+c.display();
+c+=b;
+c.display();
+if(c==d){cout<<"ok";}
+return 0;
+}
+///
+
+
 
 
 
