@@ -288,7 +288,92 @@ if(c==d){cout<<"ok";}
 return 0;
 }
 ///
+## 2D  matrix using pointer
+// creating 2-D array with pointer
+#include <iostream>
+#include <Math.h>
+using namespace std;
 
+class Matrix{
+int row,col;
+int **mat;
+//default constructor
+public:
+Matrix(){
+row=2;
+col=2;
+// creating address spaces in mat
+mat=new int *[row];
+// creating colums value
+for(int i=0;i<row;i++)
+mat[i]=new int[col];
+// filling array to 0
+for(int i=0;i<row;i++){
+for(int j=0;j<col;j++)
+mat[i][j]=0;
+}
+}
+
+Matrix(int r,int c){
+row=r;
+col=c;
+mat=new int *[row];
+}
+// getting values of matrix from user
+void input(){
+for(int i=0;i<row;i++){
+cout<<"enter matrix value \n";
+for(int j=0;j<col;j++)
+{
+//cout<<"enter matrix value \n";
+cin>>mat[i][j];
+}
+}
+}
+
+//for displaying matrix
+void display(){
+cout<<"our matrix will be \n";
+for(int i=0;i<row;i++){
+for(int j=0;j<col;j++)
+cout<<mat[i][j]<<" ";
+cout<<"\n";
+}
+}
+
+// for copying matrix
+Matrix (Matrix const &m){
+row=m.row;
+col=m.col;
+mat=new int*[m.row];
+for(int i=0;i<row;i++)
+mat[i]=new int[col];
+
+for(int i=0;i<row;i++){
+for(int j=0;j<col;j++)
+mat[i][j]=m.mat[i][j];
+}
+
+}
+
+
+//destructor
+~Matrix(){
+for(int i=0;i<row;i++){
+delete[] mat[i];
+}
+delete [] mat;
+}
+};
+int main(){
+Matrix a; 
+a.input();
+a.display();
+Matrix b(a);
+b.display();
+return 0;
+}
+/////////////////////////////////////////
 
 
 
