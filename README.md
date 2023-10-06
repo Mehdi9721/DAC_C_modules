@@ -374,8 +374,68 @@ b.display();
 return 0;
 }
 /////////////////////////////////////////
+## program for String including strcpy for getting string
+# include<iostream>
+# include<string.h>
+using namespace std;
+class StringX{
+int len;
+char *str;
+//creating public type
+public:
+// creating constructor
+StringX(){
+len=2;
+str=new char[len];
+strcpy(str,"\0");
+}
+//taking length 
+StringX(int l){
+len=l;
+str=new char[len];
+}
+//talking string by base address of input string
+StringX(char *p){
+len=strlen(p);
+str=new char[len];
+strcpy(str,p);
+}
+// displaying string
+void display(){
+cout<<"string is => "<<str<<"\n";
+}
+// for copy constructor
+StringX(StringX const & s){
+len=s.len;
+str=new char[len];
+strcpy(str,s.str);
+}
 
+//operator overloading
+StringX operator=(StringX const &o){
 
+len=o.len;
+str=new char[len];
+strcpy(str,o.str);
+return *this;
+}
+// for destructor
+~StringX(){delete [] str;
+str=NULL;}
+};
+
+int main(){
+//StringX a(4);
+StringX a("hell");
+a.display();
+StringX m(a),p;
+m.display();
+p=m;
+
+p.display();
+return 0;
+}
+///////////////////////////////////////
 
 
 
