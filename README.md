@@ -443,6 +443,7 @@ A diamond problem will arise when the child class "D" is derived from calss "B" 
 To sole this ambiguty we will use "virtual" keyword after ":" during extension of parent class in child class.
 
 //
+<br>
 class A{
 };
 class B:virtual public A{
@@ -452,7 +453,9 @@ class C:virtual public A{
 class D:public B,public C{
 };
 
-//
+// 
+
+<br>
 assignment--
 ---
 #include <iostream>
@@ -494,11 +497,12 @@ multiD.display();
 
 return 0;
 }
+<br>
 
 ---
 ### polymorphism
 The parent class or base class can hold the address of its derived class or child class. <br>
-A pure virtual function can be written to achive this.
+A pure virtual function can be written to achive this.<br>
 #### pure virtual function
 A vitual function is called pure virtual when it has no any methods written inside it ex= "virtual float A() =0; <br>
 
@@ -513,10 +517,10 @@ class square{
 };
 class circle{
 
-};
-///////////////
-achiving polymorphism through ->
-//
+};<br>
+///////////////<br>
+achiving polymorphism through -><br> 
+//<br>
 // plymorphism
 #include <iostream>
 using namespace std;
@@ -570,21 +574,24 @@ cout<<ptr->area()<<"\n";
 
 return 0;
 }
+<br>
 
-//////
+////// <br>
 in above code there is three class is created the shape class is a parent class and two chiled clasess circle and square is derived from it, <br>
 when we want to use parent class which is "shape" to behave as multiple role we can achive it by storing address of child classe into parent class.<br>
-In c++ we can store address of chile in parent through->
+In c++ we can store address of chile in parent through-><br>
 
-{Shape *ptr;
-ptr=&circle;} 
+{Shape *ptr; <br>
+ptr=&circle;} <br>
 
 this is a class pointer which can holed the address of chiled <br>
 The pure virtual method is declared inside the parent calss which help us to achive run time data binding. <br>
 #### run time data binding 
 The run time data binding means we can told complier to bind data not on complie time but on run time so that our method can behave virtually for my all child classes.
 
-
+# overriding
+overriding is not a polymorphism <br>
+Overriding can be done when mehtod of base class is also written in child calss,then the child class method will be call due to overriding. (Overriding will happen when method in parent class has same method in child calss with same arguments in both of them). <br>
 
 
 
