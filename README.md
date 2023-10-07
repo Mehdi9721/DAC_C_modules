@@ -436,7 +436,7 @@ p.display();
 return 0;
 }
 ////////////////////////////////////////////////////////////////////////////////////////////
-# D-143      07-10-23
+# D-143   |   07-10-23
 ## polymorphsim and inheritance
 inheritance in c++ can achive when child class is derived from parent class. "child:public parent{}",this will create a child class. <br>
 A diamond problem will arise when the child class "D" is derived from calss "B" and "C" and the B C is also derived from "A", in this situation the methods in class A will also pass to B and C both on calling this function from class D the ambiguty will arrise.
@@ -451,11 +451,138 @@ class C:virtual public A{
 class D:public B,public C{
 };
 //
+assignment--
+---
+#include <iostream>
+using namespace std;
+// testing polymorphism
+//base class
+class base{
+int a;
+public:
+base(){
+a=10;
+}
+
+void display(){
+cout<<a<<"\n";
+}
+};
+
+//derived class
+class derive1:public virtual base{
+
+};
+class derive2:public virtual base{
+
+};
+class multipleDerived:public derive1,public derive2{
+
+};
+int main(){
+   base a;
+   derive1 d1;
+derive2 d2; 
+       a.display();
+       d1.display();
+d2.display();
+// now calling the ambiguty class
+multipleDerived multiD;
+multiD.display();
+
+return 0;
+}
+
+---
 ### polymorphism
 The parent class or base class can hold the address of its derived class or child class. <br>
 A pure virtual function can be written to achive this.
 #### pure virtual function
-A vitual function is called virtual when it has no any methods written inside it "exp = virtual float A() =0;
+A vitual function is called pure virtual when it has no any methods written inside it ex= "virtual float A() =0; <br>
+
+To understand polymorphism better lets take example to find the area of any shape by declaring "shape" as base class and circle.squre as the derived class. <br>
+
+--
+class area{
+
+};
+class square{
+
+};
+class circle{
+
+};
+///////////////
+achiving polymorphism through ->
+//
+// plymorphism
+#include <iostream>
+using namespace std;
+class Shape{
+public:
+virtual float area() =0;
+};
+
+class Square:public Shape{
+int a,b;
+public:
+Square(){
+a=1;
+b=1;
+}
+Square(int a,int b){
+this->a=a;
+this->b=b;
+}
+float area(){
+return a*b;
+}
+
+};
+class circle:public Shape{
+int r;
+public:
+circle(){r=1;}
+circle(int r){
+this->r=r;
+}
+float area(){
+return 3.14*r*r;
+}
+};
+
+int main(){
+Square y(3,23);
+
+// creating pointer of Shape class which will store the address of object
+Shape *ptr;
+ptr=&y;
+
+// -> is used to print area from base class
+
+cout<<ptr->area() <<"\n";
+circle m(9);
+ptr=&m;
+
+cout<<ptr->area()<<"\n";
+
+return 0;
+}
+
+//////
+in above code there is three class is created the shape class is a parent class and two chiled clasess circle and square is derived from it, <br>
+when we want to use parent class which is "shape" to behave as multiple role we can achive it by storing address of child classe into parent class.<br>
+In c++ we can store address of chile in parent through->
+
+{Shape *ptr;
+ptr=&circle;} 
+
+this is a class pointer which can holed the address of chiled <br>
+The pure virtual method is declared inside the parent calss which help us to achive run time data binding. <br>
+#### run time data binding 
+The run time data binding means we can told complier to bind data not on complie time but on run time so that our method can behave virtually for my all child classes.
+
+
 
 
 
