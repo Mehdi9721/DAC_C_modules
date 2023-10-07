@@ -587,6 +587,8 @@ ptr=&circle;} <br>
 this is a class pointer which can holed the address of chiled <br>
 The pure virtual method is declared inside the parent calss which help us to achive run time data binding. <br>
 #### run time data binding 
+Run time binding is achived in c++ by creating pointer of base class which holdes the address of the object of the deerived class. <br>
+
 The run time data binding means we can told complier to bind data not on complie time but on run time so that our method can behave virtually for my all child classes.
 
 # overriding
