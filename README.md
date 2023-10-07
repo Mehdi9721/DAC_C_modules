@@ -441,6 +441,7 @@ return 0;
 inheritance in c++ can achive when child class is derived from parent class. "child:public parent{}",this will create a child class. <br>
 A diamond problem will arise when the child class "D" is derived from calss "B" and "C" and the B C is also derived from "A", in this situation the methods in class A will also pass to B and C both on calling this function from class D the ambiguty will arrise.
 To sole this ambiguty we will use "virtual" keyword after ":" during extension of parent class in child class.
+
 //
 class A{
 };
@@ -450,6 +451,7 @@ class C:virtual public A{
 };
 class D:public B,public C{
 };
+
 //
 assignment--
 ---
