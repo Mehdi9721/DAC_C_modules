@@ -435,9 +435,27 @@ p=m;
 p.display();
 return 0;
 }
-///////////////////////////////////////
-
-
+////////////////////////////////////////////////////////////////////////////////////////////
+# D-143      07-10-23
+## polymorphsim and inheritance
+inheritance in c++ can achive when child class is derived from parent class. "child:public parent{}",this will create a child class. <br>
+A diamond problem will arise when the child class "D" is derived from calss "B" and "C" and the B C is also derived from "A", in this situation the methods in class A will also pass to B and C both on calling this function from class D the ambiguty will arrise.
+To sole this ambiguty we will use "virtual" keyword after ":" during extension of parent class in child class.
+//
+class A{
+};
+class B:virtual public A{
+};
+class C:virtual public A{
+};
+class D:public B,public C{
+};
+//
+### polymorphism
+The parent class or base class can hold the address of its derived class or child class. <br>
+A pure virtual function can be written to achive this.
+#### pure virtual function
+A vitual function is called virtual when it has no any methods written inside it "exp = virtual float A() =0;
 
 
 
