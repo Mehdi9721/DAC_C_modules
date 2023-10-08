@@ -557,14 +557,14 @@ return 3.14*r*r;
 }
 };
 
-int main(){
-Square y(3,23);
+int main(){ <br>
+Square y(3,23); <br>
 
-// creating pointer of Shape class which will store the address of object
-Shape *ptr;
-ptr=&y;
+// creating pointer of Shape class which will store the address of object<br>
+Shape *ptr;<br>
+ptr=&y; <br>
 
-// -> is used to print area from base class
+// -> is used to print area from base class <br>
 
 cout<<ptr->area() <<"\n";
 circle m(9);
@@ -573,7 +573,8 @@ ptr=&m;
 cout<<ptr->area()<<"\n";
 
 return 0;
-}
+} 
+
 <br>
 
 ////// <br>
