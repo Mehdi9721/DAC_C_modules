@@ -615,6 +615,7 @@ public:
 // creating constructor for base class
 emp(){
 name=new char[4];
+strcpy(name,"\0");
 bsal=1000;
 }
 emp(float bs){bsal=bs;}
@@ -649,7 +650,7 @@ int overtime;
 char *dept;
 
 public:
-clerk(){overtime=0;dept=new char[20];}
+clerk(){overtime=0;dept=new char[20]; strcpy(dept,"\0");}
 
 clerk(char *naam,float sal,int over,char *dep):emp(sal,naam){
 overtime=over;
@@ -673,7 +674,7 @@ int saleamount;
 char *mgrname;
 
 public:
-salesman(){saleamount=0;mgrname=new char[20];}
+salesman(){saleamount=0;mgrname=new char[20];strcpy(mgrname,"\0");}
 salesman(char *naam,float sal,int amount,char *mgr):emp(sal,naam){
 saleamount=amount;
 mgrname=new char[strlen(mgr)+1];
@@ -706,6 +707,7 @@ public:
 manager(){
 bonus=0;
 dept=new char[10];
+strcpy(dept,"\0");
 }
 manager(char *naam,float sal,float bon,char *dep):emp(sal,naam){
 bonus=bon;
