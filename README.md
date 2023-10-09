@@ -597,7 +597,136 @@ overriding is not a polymorphism <br>
 Overriding can be done when mehtod of base class is also written in child calss,then the child class method will be call due to overriding. (Overriding will happen when method in parent class has same method in child calss with same arguments in both of them). <br>
 
 
+# D-141 | 09/10/23
+## assignment of creating salery for clerk,salesman and manager using Polymorphism
 
+//testing polymorphism 
+#include<iostream>
+#include<string.h>
+using namespace std;
+class emp{
+protected:
+char *name;
+float bsal;
+
+public:
+// creating constructor for base class
+emp(){
+name=new char[4];
+bsal=1000;
+}
+emp(float bs){bsal=bs;}
+emp(float bs,char*naam){bsal=bs;name=new char[strlen(naam)+1];strcpy(name,naam);}
+emp(char *naam,float bs){
+name=new char[strlen(naam)+1];
+strcpy(name,naam);
+bsal=bs;
+}
+virtual float calNetSal()=0;
+
+float getsal(){
+return bsal;
+}
+void display(){
+cout<<name<<"\n";
+cout<<bsal<<"\n";
+}
+virtual ~emp(){
+delete []name;
+}
+
+};
+class clerk:public emp{
+int overtime;
+char *dept;
+
+public:
+clerk(){overtime=0;dept=new char[20];}
+
+clerk(char *naam,float sal,int over,char *dep):emp(sal,naam){
+overtime=over;
+dept=new char[strlen(dep)+1];
+strcpy(dept,dep);
+}
+float calNetSal(){
+cout<<"total salery of clerk : ";
+return (overtime*1200)+getsal();
+}
+virtual ~clerk(){delete []dept; }
+};
+
+// class for salesman
+
+class salesman:public emp{
+int saleamount;
+char *mgrname;
+
+public:
+salesman(){saleamount=0;mgrname=new char[20];}
+salesman(float sal,int amount,char *mgr):emp(sal){
+saleamount=amount;
+mgrname=new char[strlen(mgr)+1];
+strcpy(mgrname,mgr);
+}
+void display(){
+cout<<saleamount<<"\n";
+cout<<mgrname<<"\n";
+}
+
+float calNetSal(){
+cout<<"salesman salery : ";
+return getsal()+(0.15*saleamount);
+}
+
+virtual ~salesman(){
+delete []mgrname;
+}
+};
+
+class manager:public emp{
+float bonus;
+char *dept;
+
+public:
+manager(){
+bonus=0;
+dept=new char[10];
+}
+manager(float sal,float bon,char *dep):emp(sal){
+bonus=bon;
+dept=new char[strlen(dep)+1];
+strcpy(dept,dep);
+}
+float calNetSal(){
+cout<<"sal of manager : ";
+return bonus+getsal();
+}
+virtual ~manager(){
+delete []dept;
+}
+};
+
+
+int main(){
+emp *e[5];
+e[0]=new clerk("Ali",150,20,"head");
+e[1]=new salesman(1000,500,"saleel");
+e[2]=new manager(5000,2000,"principle");
+//e[3]=new clerk();
+//e[4]=new clerk();
+
+for(int i=0;i<3;i++){
+cout<< e[i]->calNetSal()<<"\n";
+}
+
+for(int i=0;i<3;i++)
+delete e[i];
+return 0;
+}
+// class manager:public emp{
+
+// };
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 
