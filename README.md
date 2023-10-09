@@ -602,6 +602,7 @@ Overriding can be done when mehtod of base class is also written in child calss,
 
 //testing polymorphism 
 //testing polymorphism 
+//testing polymorphism 
 #include<iostream>
 #include<string.h>
 using namespace std;
@@ -743,10 +744,21 @@ if(e[i]->calNetSal()>15000){
 cout<<e[i]->empname()<<"\n";
 }
 }
+cout<<"enter employee name to get its detail"<<"\n";
+string naam;
+getline(cin,naam);
+for(int i=0;i<3;i++){
+if(e[i]->empname()==naam){
+cout<<e[i]->getname()<<"\n";
+cout<<e[i]->getsal()<<"\n";
+}
+}
+
 for(int i=0;i<3;i++)
 delete e[i];
 return 0;
 }
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
