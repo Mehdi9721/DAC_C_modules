@@ -601,6 +601,7 @@ Overriding can be done when mehtod of base class is also written in child calss,
 ## assignment of creating salery for clerk,salesman and manager using Polymorphism
 
 //testing polymorphism 
+//testing polymorphism 
 #include<iostream>
 #include<string.h>
 using namespace std;
@@ -623,10 +624,16 @@ strcpy(name,naam);
 bsal=bs;
 }
 virtual float calNetSal()=0;
-
+virtual char *empname()=0;
+//using getter to get sal
 float getsal(){
 return bsal;
 }
+//using getter to get name
+char *getname(){
+return name;
+}
+
 void display(){
 cout<<name<<"\n";
 cout<<bsal<<"\n";
@@ -649,8 +656,11 @@ dept=new char[strlen(dep)+1];
 strcpy(dept,dep);
 }
 float calNetSal(){
-cout<<"total salery of clerk : ";
+//cout<<"total salery of clerk : ";
 return (overtime*1200)+getsal();
+}
+char *empname(){
+return getname();
 }
 virtual ~clerk(){delete []dept; }
 };
@@ -663,7 +673,7 @@ char *mgrname;
 
 public:
 salesman(){saleamount=0;mgrname=new char[20];}
-salesman(float sal,int amount,char *mgr):emp(sal){
+salesman(char *naam,float sal,int amount,char *mgr):emp(sal,naam){
 saleamount=amount;
 mgrname=new char[strlen(mgr)+1];
 strcpy(mgrname,mgr);
@@ -674,8 +684,12 @@ cout<<mgrname<<"\n";
 }
 
 float calNetSal(){
-cout<<"salesman salery : ";
+//cout<<"salesman salery : ";
 return getsal()+(0.15*saleamount);
+}
+
+char *empname(){
+return getname();
 }
 
 virtual ~salesman(){
@@ -692,15 +706,20 @@ manager(){
 bonus=0;
 dept=new char[10];
 }
-manager(float sal,float bon,char *dep):emp(sal){
+manager(char *naam,float sal,float bon,char *dep):emp(sal,naam){
 bonus=bon;
 dept=new char[strlen(dep)+1];
 strcpy(dept,dep);
 }
 float calNetSal(){
-cout<<"sal of manager : ";
+//cout<<"sal of manager : ";
 return bonus+getsal();
 }
+
+char *empname(){
+return getname();
+}
+
 virtual ~manager(){
 delete []dept;
 }
@@ -709,23 +728,25 @@ delete []dept;
 
 int main(){
 emp *e[5];
-e[0]=new clerk("Ali",150,20,"head");
-e[1]=new salesman(1000,500,"saleel");
-e[2]=new manager(5000,2000,"principle");
+e[0]=new clerk("Ankur",15000,20,"head");
+e[1]=new salesman("Deepak",10000,500,"saleel");
+e[2]=new manager("Kaushar",50000,1000,"principle");
 //e[3]=new clerk();
 //e[4]=new clerk();
 
 for(int i=0;i<3;i++){
 cout<< e[i]->calNetSal()<<"\n";
 }
-
+cout<<"printing employee name whoes salary is greater than 15000"<<"\n";
+for(int i=0;i<3;i++){
+if(e[i]->calNetSal()>15000){
+cout<<e[i]->empname()<<"\n";
+}
+}
 for(int i=0;i<3;i++)
 delete e[i];
 return 0;
 }
-// class manager:public emp{
-
-// };
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
