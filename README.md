@@ -248,7 +248,43 @@ d=b*c;
 d.display();
 return 0;
 }
+## copy constructor for char
+#include<iostream>
+using namespace std;
+#include <string.h>
+class A{
+char *c;
+public:
+A(){
+c=new char[20];
+strcpy(c,"\0");
+}
+A(char *l){
+c=new char[20];
+strcpy(c,l);
+}
+A(A &h){
+c=new char[20];
+strcpy(c,h.c);
+}
+A operator=(A const &l){
+strcpy(c,l.c);
+return *this;
+}
+void display(){
+cout<<c;
 
+}
+
+~A(){delete []c;}
+};
+
+int main(){
+A p("ali");
+A n(p);
+n.display();
+return 0;
+}
 
 ### using getter setter om date for updating class values (asss- on point)
 #include<iostream>
