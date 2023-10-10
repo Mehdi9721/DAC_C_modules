@@ -206,6 +206,50 @@ d.display();
 f=d+e;
 f.display();
 }
+
+## operator * =
+
+#include<iostream>
+#include<string.h>
+using namespace std;
+class A{
+int *x;
+public:
+A(){
+x=new int;
+*x=9;
+}
+A(A const &v){
+x=new int;
+*x=*v.x;
+}
+A(int v){
+x=new int;
+*x=v;
+}
+void display(){
+cout<<*x;
+}
+A operator=(A const v){
+*x=*v.x;
+return *this;
+}
+A operator *(A const v){
+A res;
+*res.x=(*x) * (*v.x);
+return res; 
+}
+~A(){delete x;}
+};
+int main(){
+A a;
+A b(99),c(2),d;
+d=b*c;
+d.display();
+return 0;
+}
+
+
 ### using getter setter om date for updating class values (asss- on point)
 #include<iostream>
 using namespace std;
